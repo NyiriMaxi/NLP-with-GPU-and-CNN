@@ -36,7 +36,7 @@ A modell elég egyszerű, mivel csak egy dimenzióban dolgozik a program, így e
 A modell tanítás közben elmentésre kerül, ha az előzőnél jobb százalékot ér el pontosságban, és ez a mentés visszatöltésre kerül a következő indításnál, így nem kell megint megvárni a folyamatot. 
 
 
-Összesen 50 epoch lenne a tanítási fázis, de a 41. epoch-nál volt a legnagyobb százalék, így az lett elmentve.
+Összesen 50 epoch lenne a tanítási fázis, de például a 41. epoch-nál volt a legnagyobb százalék, így az lett elmentve.
 
 Tanítás után a különböző tesztek pontosságát is látni lehet, mint például a Precision, F1 vagy Recall tesztek:
 
