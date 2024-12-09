@@ -78,10 +78,9 @@ def ReadFromImage(image):
         _,binary=thresholding(get_grayscale(image))
         
         custom_config = r'--oem 3 --psm 6'
-        plt.imshow(binary)
-        plt.show()
+        
         return_text= pytes.image_to_string(binary, config=custom_config,lang="ara+eng+dan+deu+fra+mal+hin+tam+knda+spa+por+rus+ita+swe+nld+tur+grek")
-        print (return_text)
+        
         utf8_text = return_text.encode('utf-8').decode('utf-8')
         return utf8_text
         

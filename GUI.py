@@ -18,7 +18,7 @@ def open_image():
     if file_path:
         try:       
             img = Image.open(file_path)
-            img.show()           
+                      
             text = ReadFromImage(img)
             text_box.delete(1.0, tk.END)
             text_box.insert(tk.END, text)
