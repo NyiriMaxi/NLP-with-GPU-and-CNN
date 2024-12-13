@@ -1,10 +1,10 @@
 from model import testing
 from GUI import runGui
-from Setup import install_requirements
 
 
+#pip install -r requirements.txt
 
-install_requirements()
+
 
 
 """

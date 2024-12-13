@@ -25,7 +25,8 @@ import Checkpoint as chk
 
 from CNNmodel import CNNModel
 
-
+#"cuda" if torch.cuda.is_available() else 
+device = torch.device("cpu")
 
 #Adatok szétosztása
 
@@ -63,7 +64,7 @@ test_loader = DataLoader(test_dataset, batch_size=16, shuffle=False)
 
     
 # Modell létrehozása és áthelyezése GPU-ra
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 cnn_model = CNNModel(vocab_size=20000, embed_size=300, num_classes=len(lng_coder.classes_),max_len=max_Len).to(device)
 
 #tanítás
@@ -130,7 +131,7 @@ def evaluate(model,testLoader):
 
 if(os.path.exists(model_path)):
     print("Mentett modell betöltése...")
-    start_epoch, best_accuracy, train_losses, test_accuracies = chk.load_checkpoint(model_path, cnn_model)
+    start_epoch, best_accuracy, train_losses, test_accuracies = chk.load_checkpoint(model_path, cnn_model,device=device)
 else:
     print("Nem volt elmentett modell, tanítás kezdése...")
     train_losses,test_accuracies=train(num_epochs=50,model=cnn_model,device=device,optimizer=optimizer,lossmodel=nn.CrossEntropyLoss(),trainLoader=train_loader,testLoader=test_loader)

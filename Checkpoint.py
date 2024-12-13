@@ -13,8 +13,8 @@ def save_checkpoint(epoch, model, accuracy, losses,test_accuracies ,file_path):
     torch.save(checkpoint, file_path)
     print(f"Checkpoint saved: {file_path}")
 
-def load_checkpoint(file_path, model):
-    checkpoint = torch.load(file_path)
+def load_checkpoint(file_path, model,device):
+    checkpoint = torch.load(file_path,map_location=device)
     model.load_state_dict(checkpoint['model_state_dict'])
     start_epoch = checkpoint['epoch'] + 1
     best_accuracy = checkpoint['accuracy']
